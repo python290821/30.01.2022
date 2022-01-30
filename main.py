@@ -6,24 +6,33 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.lang.builder import Builder
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, StringProperty
 
 class DbGenWidget(Widget):
-    option1 = ObjectProperty(None)
-    option2 = ObjectProperty(None)
-    option3 = ObjectProperty(None)
 
-    # root.btn() in kv file
-    def btn(self):
-        pass
-    def checkbox_click(self, instance, value):
-        if value is True:
-            print(f"Checkbox Checked {instance}")
-        else:
-            print(f"Checkbox Unchecked {instance}")
-        print(self.option1.active)
-        print(self.option2.active)
-        print(self.option3.active)
+    slabel1 = StringProperty('On')
+    slabel2 = StringProperty('Off')
+
+    def switchstate1(self):
+        # Switch radio button 1 on and process event trigger
+        # Force 'down' state to avoid deselecting all radio buttons (Kivy thing)
+        self.ids.rbutton1.state = 'down'
+        # Update optional label values
+        self.slabel1 = 'on'
+        self.slabel2 = 'off'
+        print(self.ids.rbutton1.state, self.ids.rbutton2.state)
+
+    def switchstate2(self):
+        # Switch radio button 2 on and process event trigger
+        # Force 'down' state to avoid deselecting all radio buttons (Kivy thing)
+        self.ids.rbutton2.state = 'down'
+        # Update optional label values
+        self.slabel1 = 'off'
+        self.slabel2 = 'on'
+        print(self.ids.rbutton1.state, self.ids.rbutton2.state)
+
+def btn(self):
+    pass
 
 class MyApp(App):   
     def build(self):
