@@ -9,22 +9,22 @@ from kivy.lang.builder import Builder
 from kivy.properties import ObjectProperty
 
 class DbGenWidget(Widget):
-    airline_companies = ObjectProperty(None)
-    customers = ObjectProperty(None)
-    administrators = ObjectProperty(None)
-    flights_per_company = ObjectProperty(None)
-    tickets_per_customer = ObjectProperty(None)
-    countries = ObjectProperty(None)
+    option1 = ObjectProperty(None)
+    option2 = ObjectProperty(None)
+    option3 = ObjectProperty(None)
 
     # root.btn() in kv file
     def btn(self):
-        print("Airline Companies:", self.airline_companies.text,
-            "Customers:", self.customers.text,
-            "Administrators:", self.administrators.text,
-            "Flights Per Company:", self.flights_per_company.text,
-            "Tickets Per Customer:", self.tickets_per_customer.text,
-            "Countries:", self.countries.text)
-   
+        pass
+    def checkbox_click(self, instance, value):
+        if value is True:
+            print(f"Checkbox Checked {instance}")
+        else:
+            print(f"Checkbox Unchecked {instance}")
+        print(self.option1.active)
+        print(self.option2.active)
+        print(self.option3.active)
+
 class MyApp(App):   
     def build(self):
         return DbGenWidget()
