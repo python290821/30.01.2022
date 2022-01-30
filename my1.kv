@@ -26,3 +26,13 @@
             Label:
                 id: label2
                 text: root.slabel2
+            Slider:
+                id: slider
+                min:0
+                max: 100
+                step:1
+                orientation: 'horizontal'
+                size_hint_x: None
+                width: 500
+            Label:
+                text: str(slider.value)
