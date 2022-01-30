@@ -6,12 +6,19 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.lang.builder import Builder
+
 class MyWidget(Widget):
-    pass
+    # root.btn() in kv file
+    def btn(self):
+        print('clicked...')
    
 class MyApp(App):
     def build(self):
         return MyWidget()
+    # app.btn() in kv file
+    def btn(self):
+        print('clicked...')        
+
 
 Builder.load_file('my1.kv')
 
