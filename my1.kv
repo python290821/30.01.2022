@@ -26,13 +26,12 @@
             Label:
                 id: label2
                 text: root.slabel2
-            Slider:
-                id: slider
-                min:0
-                max: 100
-                step:1
-                orientation: 'horizontal'
-                size_hint_x: None
-                width: 500
+            Spinner:
+                id: spinner_id
+                text: "Click"
+                values: ["Add to DB", "Replace DB"]
+                on_text: root.spinner_clicked(spinner_id.text)
             Label:
-                text: str(slider.value)
+                id: selected_value
+                text:""
+                font_size: 14

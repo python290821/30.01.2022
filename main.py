@@ -31,6 +31,10 @@ class DbGenWidget(Widget):
         self.slabel2 = 'on'
         print(self.ids.rbutton1.state, self.ids.rbutton2.state)
 
+    def spinner_clicked(self, value):
+        # get selected dropdown value and change the label text
+        self.ids.selected_value.text = f"You have selected {value}"
+
 def btn(self):
     pass
 
